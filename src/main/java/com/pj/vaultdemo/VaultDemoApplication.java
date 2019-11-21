@@ -4,12 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class VaultdemoApplication
+public class VaultDemoApplication
 {
-
 	public static void main(String[] args)
 	{
-		SpringApplication.run(VaultdemoApplication.class, args);
+		SpringApplication.run(VaultDemoApplication.class, args);
 	}
-
 }

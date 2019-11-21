@@ -1,0 +1,15 @@
+spring:
+  cloud:
+    vault:
+      kv:
+        enabled: true
+        backend: secrets
+        application-name: vault-demo
+        default-context: dev-mysql
+
+      token: s.9TIJeTjLtfncwdZXNBHpoB8S
+      scheme: http
+      uri: http://localhost:8200
+
+
+
