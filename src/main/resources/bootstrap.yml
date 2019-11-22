@@ -1,14 +1,15 @@
 spring:
+  application:
+    name: pres
   cloud:
     vault:
       authentication: TOKEN
-      token: s.9TIJeTjLtfncwdZXNBHpoB8S
+      token: ${token}
       scheme: http
       host: localhost
       port: 8200
       kv:
         enabled: true
-        backend: secret
-        profile-separator: '/'
-        default-context: application
-        application-name: vault-demo
+        backend: vaultdemo
+  profiles:
+    active: dev

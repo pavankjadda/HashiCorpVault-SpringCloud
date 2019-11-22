@@ -18,6 +18,6 @@ public class EmployeeController
 	@GetMapping("/test")
 	public String test()
 	{
-		return appConfig.getEnvironment().getProperty("username");
+		return appConfig.getEnvironment().getProperty("username")+", "+appConfig.getEnvironment().getProperty("password")+", "+appConfig.getEnvironment().getProperty("url");
 	}
 }
