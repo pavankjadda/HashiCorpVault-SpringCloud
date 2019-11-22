@@ -1,5 +1,5 @@
-# HashiCorpVault with Spring Cloud config
-This repository demonstrates Hashi Corp Vault with Spring Cloud config
+# Hashi Corp Vault with Spring Cloud config
+This repository demonstrates Hashi Corp Vault setup and usage with Spring Cloud config
 
 ## Vault setup
 1. Create a directory named HashiCorpVault and store all the setup files, config files there
