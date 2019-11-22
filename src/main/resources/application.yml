@@ -1,5 +1,4 @@
+## Server Properties
 spring:
-  datasource:
-    username: ${username}
-    password: ${password}
-    url: ${url}
+  profiles:
+    active: @activatedProperties@

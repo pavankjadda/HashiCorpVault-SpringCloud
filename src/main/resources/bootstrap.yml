@@ -12,4 +12,4 @@ spring:
         enabled: true
         backend: vaultdemo
   profiles:
-    active: dev
+    include: dev,test
