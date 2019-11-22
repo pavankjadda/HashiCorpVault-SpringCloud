@@ -75,7 +75,7 @@ This repository demonstrates Hashi Corp Vault setup and usage with Spring Cloud 
 4. Format of the vault should be `<secret_engine_name>/<application_name>/<profile>`. Following this format is necessary as Spring Cloud config depends on this format
 5. Execute the following to create test, prod profile and key value pairs inside of it
     ```
-    $ vault kv put vaultdemo/pres/test username=root password=test1234 url="jdbc:mysql://localhost:3306/bookstore_test"
+    $ vault kv put vaultdemo/pres/test username=sa password="" url="jdbc:h2:mem:bookstore"
     
     $ vault kv put vaultdemo/pres/prod username=root password=prod1234 url="jdbc:mysql://localhost:3306/bookstore_prod"
     ```  
