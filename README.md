@@ -134,3 +134,4 @@ This repository demonstrates Hashi Corp Vault setup and usage with Spring Cloud 
     ```shell script
     java -jar target/vaultdemo-0.0.1.jar
     ``` 
+3. Go to http://localhost:8081/api/v1/book/list to see list of books retrived from database whose credentials retrived from Vault    
