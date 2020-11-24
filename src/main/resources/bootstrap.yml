@@ -8,11 +8,9 @@ spring:
         role: pres-read
         app-role-path: approle
       uri: localhost
+      connection-timeout: 5000
+      read-timeout: 15000
       kv:
         enabled: true
         backend: secret
-        default-context: application
-        profile-separator: /
         application-name: app/pres
-#  profiles:
-#    include: dev,test,prod

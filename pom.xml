@@ -5,17 +5,17 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.2.1.RELEASE</version>
+        <version>2.4.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.pj</groupId>
     <artifactId>vaultdemo</artifactId>
-    <version>0.0.1</version>
+    <version>1.1.0</version>
     <name>vaultdemo</name>
     <description>HashiCorp Vault with Spring Cloud Vault</description>
 
     <properties>
-        <java.version>1.8</java.version>
+        <java.version>11</java.version>
         <spring-cloud.version>Hoxton.RC2</spring-cloud.version>
     </properties>
 
@@ -31,6 +31,7 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-vault-config</artifactId>
+            <version>3.0.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>
@@ -39,11 +40,7 @@
             <scope>runtime</scope>
             <optional>true</optional>
         </dependency>
-        <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <scope>runtime</scope>
-        </dependency>
+
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -76,7 +73,7 @@
         <profile>
             <id>dev</id>
             <properties>
-                <activatedProperties>dev</activatedProperties>
+                <activatedProfile>dev</activatedProfile>
             </properties>
             <activation>
                 <activeByDefault>true</activeByDefault>
@@ -85,28 +82,18 @@
         <profile>
             <id>test</id>
             <properties>
-                <activatedProperties>test</activatedProperties>
+                <activatedProfile>test</activatedProfile>
             </properties>
         </profile>
         <profile>
             <id>prod</id>
             <properties>
-                <activatedProperties>prod</activatedProperties>
+                <activatedProfile>prod</activatedProfile>
             </properties>
         </profile>
 
     </profiles>
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring-cloud.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+
 
     <build>
         <plugins>
@@ -118,10 +105,11 @@
     </build>
 
     <repositories>
+        <!-- Spring Snapshot repository-->
         <repository>
-            <id>spring-milestones</id>
-            <name>Spring Milestones</name>
-            <url>https://repo.spring.io/milestone</url>
+            <id>spring-snapshots</id>
+            <name>repo.spring.io-snapshots</name>
+            <url>https://repo.spring.io/snapshot</url>
         </repository>
     </repositories>
 

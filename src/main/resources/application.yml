@@ -1,4 +1,4 @@
 ## Select profile
-#spring:
-#  profiles:
-#    active: @activatedProperties@
+spring:
+  profiles:
+    active: '@activatedProfile@'
