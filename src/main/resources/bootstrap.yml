@@ -1,15 +1,18 @@
 spring:
-  application:
-    name: pres
   cloud:
     vault:
-      authentication: TOKEN
-      token: ${token}
-      scheme: http
-      host: localhost
-      port: 8200
+      authentication: APPROLE
+      app-role:
+        role-id: ${role-id}
+        secret-id: ${secret-id}
+        role: pres-read
+        app-role-path: approle
+      uri: localhost
       kv:
         enabled: true
-        backend: vaultdemo
-  profiles:
-    include: dev,test,prod
+        backend: secret
+        default-context: application
+        profile-separator: /
+        application-name: app/pres
+#  profiles:
+#    include: dev,test,prod
