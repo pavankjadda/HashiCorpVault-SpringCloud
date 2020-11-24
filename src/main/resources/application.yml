@@ -1,4 +1,9 @@
 ## Select profile
+#spring:
+#  profiles:
+#    active: '@activatedProfile@'
+
 spring:
-  profiles:
-    active: '@activatedProfile@'
+  config:
+    activate:
+      on-profile: '@activatedProfile@'
