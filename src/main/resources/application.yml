@@ -15,11 +15,5 @@ spring:
       uri: ${vault-server}
       connection-timeout: 5000
       read-timeout: 15000
-      kv:
-        enabled: true
-        backend: secret
-        application-name: app/pres
   config:
-    activate:
-      on-profile: '@activatedProfile@'
-    import: vault://
+    import: vault://secret/app/pres
