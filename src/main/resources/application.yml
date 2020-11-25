@@ -4,6 +4,22 @@
 #    active: '@activatedProfile@'
 
 spring:
+  cloud:
+    vault:
+      authentication: APPROLE
+      app-role:
+        role-id: ${role-id}
+        secret-id: ${secret-id}
+        role: pres-read
+        app-role-path: approle
+      uri: ${vault-server}
+      connection-timeout: 5000
+      read-timeout: 15000
+      kv:
+        enabled: true
+        backend: secret
+        application-name: app/pres
   config:
     activate:
       on-profile: '@activatedProfile@'
+    import: vault://

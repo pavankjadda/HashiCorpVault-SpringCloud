@@ -7,3 +7,5 @@ spring:
     username: ${pres.db.username}
     password: ${pres.db.password}
     url: ${pres.db.url}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
