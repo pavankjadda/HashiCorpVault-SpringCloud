@@ -3,10 +3,28 @@ server:
   port: 8081
 
 spring:
+  cloud:
+    vault:
+      authentication: APPROLE
+      app-role:
+        role-id: ${role-id}
+        secret-id: ${secret-id}
+        role: pres-read
+        app-role-path: approle
+      uri: ${vault-server}
+      connection-timeout: 5000
+      read-timeout: 15000
+  config:
+    import: vault://secret/app/pres/demo
+    activate:
+      on-profile: "demo"
   datasource:
     username: ${pres.db.username}
     password: ${pres.db.password}
     url: ${pres.db.url}
     driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
 
 

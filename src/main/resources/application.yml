@@ -16,4 +16,4 @@ spring:
       connection-timeout: 5000
       read-timeout: 15000
   config:
-    import: vault://secret/app/pres
+    import: vault://secret/app/pres/
