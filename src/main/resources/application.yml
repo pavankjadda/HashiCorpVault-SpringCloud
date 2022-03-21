@@ -1,19 +1,14 @@
-## Select profile
-#spring:
-#  profiles:
-#    active: '@activatedProfile@'
-
 spring:
+  application:
+    name: pres
   cloud:
     vault:
-      authentication: APPROLE
-      app-role:
-        role-id: ${role-id}
-        secret-id: ${secret-id}
-        role: pres-read
-        app-role-path: approle
-      uri: ${vault-server}
-      connection-timeout: 5000
-      read-timeout: 15000
-  config:
-    import: vault://secret/app/pres/
+      authentication: TOKEN
+      token: ${VAULT_TOKEN}
+      scheme: http
+      host: localhost
+      port: 8200
+      kv:
+        enabled: true
+        backend: vaultdemo
+

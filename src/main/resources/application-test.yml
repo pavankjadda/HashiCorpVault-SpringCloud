@@ -3,7 +3,17 @@ server:
   port: 8081
 
 spring:
+  config:
+    import: vault://vaultdemo/pres/test
+    activate:
+      on-profile: "test"
   datasource:
     username: ${db.username}
     password: ${db.password}
     url: ${db.url}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+

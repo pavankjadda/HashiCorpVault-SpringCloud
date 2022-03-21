@@ -4,13 +4,13 @@ server:
 
 spring:
   config:
-    import: vault://secret/app/pres/demo
+    import: vault://vaultdemo/pres/demo
     activate:
       on-profile: "demo"
   datasource:
-    username: ${pres.db.username}
-    password: ${pres.db.password}
-    url: ${pres.db.url}
+    username: ${db.username}
+    password: ${db.password}
+    url: ${db.url}
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:

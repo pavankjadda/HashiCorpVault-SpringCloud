@@ -101,8 +101,7 @@ This repository demonstrates Hashi Corp Vault setup and usage with Spring Cloud 
    ```
     $ export VAULT_TOKEN=<Your token>
    ```
-7. Spring uses`bootstrap.yml` file to load vault config and key value pairs required by the spring profiles before initializing the context. The `${VAULT_TOKEN}` value will be taken from machine environmental variables. 
-8. Make sure to include all the profiles in `include` attribute. This instructs Spring to load those profiles before initializing context
+7. Spring uses`application.yml` file to load vault config and key value pairs required by the spring profiles before initializing the context. The `${VAULT_TOKEN}` value will be taken from machine environmental variables. 
 9. Now create `application-dev.yml` file with the following content. The keys from the vault should match here i.e ${username},${password},${url}
     ```
     ## Server Properties
@@ -110,10 +109,14 @@ This repository demonstrates Hashi Corp Vault setup and usage with Spring Cloud 
       port: 8081
     
     spring:
+      config:
+      import: vault://vaultdemo/pres/dev
+      activate:
+        on-profile: "dev"
       datasource:
-        username: ${username}
-        password: ${password}
-        url: ${url}
+        username: ${db.username}
+        password: ${db.password}
+        url: ${db.url}
     ```
 10. Create `application-test.yml` and `application-prod.yml` config files for Test and Prod environments
 11. Create `application.yml` file that selects actual spring profile based on maven command. Please [look at this gist](https://gist.github.com/pavankjadda/a9e684c7db699a050d87be4a8c391e4c) on "How to select Spring boot profile from maven"?
@@ -132,6 +135,6 @@ This repository demonstrates Hashi Corp Vault setup and usage with Spring Cloud 
     ```
 2. Now run the project with the java command. This should start my project using the profile from previous step
     ```shell script
-    java -jar target/vaultdemo-0.0.1.jar
+    java -jar --DVAULT_TOKEN=<Root Token> target/vaultdemo-*.jar
     ``` 
 3. Go to http://localhost:8081/api/v1/book/list to see list of books retrived from database whose credentials retrived from Vault    
