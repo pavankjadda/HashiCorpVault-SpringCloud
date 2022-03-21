@@ -1,4 +1,7 @@
+## Select profile
 spring:
+  profiles:
+    active: @activatedProperties@
   application:
     name: pres
   cloud:
@@ -11,4 +14,3 @@ spring:
       kv:
         enabled: true
         backend: vaultdemo
-
